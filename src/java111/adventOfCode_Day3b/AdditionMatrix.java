@@ -179,79 +179,88 @@ public class AdditionMatrix {
     public int sumUpValues(int row, int column) {
         
         int sum = 0;
+                
+        if (column == 0) {
         
-        try {
+            sum += 0;
+        
+        } else {
         
             sum += matrix[row][column - 1];
         
-        } catch (ArrayIndexOutOfBoundsException ex) {
+        }
+        
+        if (column == matrix[row].length - 1) {
         
             sum += 0;
         
-        }
-        
-        
-        try {
+        } else {
         
             sum += matrix[row][column + 1];
         
-        } catch (ArrayIndexOutOfBoundsException ex) {
+        }
+                
+        if (row == 0) {
             
             sum += 0;
-        }
         
-        try {
-        
+        } else {
+            
             sum += matrix[row - 1][column];
         
-        } catch (ArrayIndexOutOfBoundsException ex) {
-            
-            sum += 0;
         }
         
-        try {
+        if (row == matrix.length - 1) {
+            
+            sum += 0;
+        
+        } else {
         
             sum += matrix[row + 1][column];
         
-        } catch (ArrayIndexOutOfBoundsException ex) {
+        }
+
+        if (row == 0 || column == 0) {
             
             sum += 0;
-        }
         
-        try {
-        
+        } else {
+            
             sum += matrix[row - 1][column - 1];
         
-        } catch (ArrayIndexOutOfBoundsException ex) {
-            
-            sum += 0;
         }
         
-        try {
+
+        if (row == 0 || column == matrix[row].length - 1) {
+            
+            sum += 0;
+        
+        } else {
             
             sum += matrix[row - 1][column + 1];
         
-        } catch (ArrayIndexOutOfBoundsException ex) {
-            
-            sum += 0;
         }
         
-        try {
+        if (row == matrix.length - 1 || column == 0) {
+            
+            sum += 0;
         
+        } else {
+            
             sum += matrix[row + 1][column - 1];
             
-        } catch (ArrayIndexOutOfBoundsException ex) {
-            
-            sum += 0;
         }
         
-        try {
         
-            sum += matrix[row + 1][column + 1];
-        
-        } catch (ArrayIndexOutOfBoundsException ex) {
+        if (row == matrix.length - 1 || column == matrix[row].length - 1) {
             
             sum += 0;
+        
+        
+        } else {
+            
+            sum += matrix[row + 1][column + 1];
+        
         }
         
         return sum;
